@@ -2,7 +2,7 @@
 REM カレントディレクトリを現在のディレクトリに変更
 cd /d %~dp0
 
-REM Mayaバージョン指定(外から指定がなければ最新)
+REM Mayaバージョン指定(指定がなければ2019)
 Set MAYA_VER=%1
 if /%MAYA_VER%/==// Set MAYA_VER=2019
 FOR /F "TOKENS=1,2,*" %%I IN ('REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Autodesk\Maya\%MAYA_VER%\Setup\InstallPath" /v "MAYA_INSTALL_LOCATION"') DO IF "%%I"=="MAYA_INSTALL_LOCATION" SET MAYA_APP_PATH=%%K
