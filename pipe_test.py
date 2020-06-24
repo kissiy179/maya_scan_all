@@ -1,5 +1,5 @@
 import sys
 
-if name == '__main__':
-    print(sys.argv[0])
-    print('-'*50)
+if __name__ == '__main__':
+    sys.stdout.write(sys.argv[0])
+    sys.stdout.write('-'*50)
