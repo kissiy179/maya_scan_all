@@ -4,13 +4,13 @@ import functools
 import maya.standalone
 maya.standalone.initialize()
 import maya.cmds as cmds
-import maya.utils as utils
 
-root_dir = sys.argv[1] if len(sys.argv) > 1 else ''
+root_dir = os.getcwd()
 extensions = ['.ma', '.mb']
 scan_count = 10
 
-def main(root_dir=''):
+def main(root_dir):
+    print(root_dir)
     cmds.loadPlugin('MayaScanner')
     scn_files = []
     for dir_, dirs, files in os.walk(root_dir):
