@@ -9,6 +9,6 @@ FOR /F "TOKENS=1,2,*" %%I IN ('REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Autodesk\M
 
 REM バッチ処理スクリプトを実行
 REM %MAYA_APP_PATH%bin\mayapy %cd%\maya_scan_all.py
-curl https://raw.githubusercontent.com/kissiy179/maya_scan_all/master/maya_scan_all.py | %MAYA_APP_PATH%bin\mayapy
+curl https://raw.githubusercontent.com/kissiy179/maya_scan_all/master/maya_scan_all.py | "%MAYA_APP_PATH%bin\mayapy"
 
 pause
