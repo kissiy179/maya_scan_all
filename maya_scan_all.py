@@ -1,6 +1,5 @@
 import os
 import sys
-import functools
 import maya.standalone
 maya.standalone.initialize()
 import maya.cmds as cmds
