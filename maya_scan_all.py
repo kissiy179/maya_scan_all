@@ -30,6 +30,9 @@ def main(root_dir):
 
         reportIssue('', smode=1)
         cmds.file(scn_file, open=True)
-        clean_malware('current scene')
+        issuesFound, issuesFixed = clean_malware('current scene')
         
+        if issuesFixed:
+            cmds.file(save=True, force=True)
+
 main(root_dir)
