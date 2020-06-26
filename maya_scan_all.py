@@ -27,6 +27,7 @@ def main(root_dir):
         if scan_count >=0 and i >= scan_count: 
             break
 
+        print('Load Scene: {}'.format(scn_file))
         reportIssue('', smode=1)
         cmds.file(scn_file, open=True)
         issuesFound, issuesFixed = clean_malware('current scene')
