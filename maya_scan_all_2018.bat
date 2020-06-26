@@ -8,7 +8,11 @@ if /%MAYA_VER%/==// Set MAYA_VER=2018
 FOR /F "TOKENS=1,2,*" %%I IN ('REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Autodesk\Maya\%MAYA_VER%\Setup\InstallPath" /v "MAYA_INSTALL_LOCATION"') DO IF "%%I"=="MAYA_INSTALL_LOCATION" SET MAYA_APP_PATH=%%K
 
 REM バッチ処理スクリプトを実行
-REM %MAYA_APP_PATH%bin\mayapy %cd%\maya_scan_all.py
-curl https://raw.githubusercontent.com/kissiy179/maya_scan_all/master/maya_scan_all.py | "%MAYA_APP_PATH%bin\mayapy"
+%MAYA_APP_PATH%bin\mayapy %cd%\maya_scan_all.py
+
+REM 実行できなかった場合githubからダウンロードして実行
+if %errorlevel% neq 0 (
+    curl https://raw.githubusercontent.com/kissiy179/maya_scan_all/master/maya_scan_all.py | "%MAYA_APP_PATH%bin\mayapy"
+)
 
 pause
