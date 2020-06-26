@@ -3,6 +3,7 @@ import sys
 import maya.standalone
 maya.standalone.initialize()
 import maya.cmds as cmds
+sys.path.append(r'C:\ProgramData\Autodesk\ApplicationPlugins\MayaScanner\Contents\scripts')
 from MayaScannerCleaner import clean_malware, MayaScannerLogFile, rollOverLogFile, reportIssue
 
 root_dir = os.getcwd()
