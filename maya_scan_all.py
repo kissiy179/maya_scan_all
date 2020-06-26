@@ -29,6 +29,7 @@ def main(root_dir):
 
         print('Load Scene: {}'.format(scn_file))
         reportIssue('', smode=1)
+        cmds.file(new=True, force=True) 
         cmds.file(scn_file, open=True)
         issuesFound, issuesFixed = clean_malware('current scene')
         
