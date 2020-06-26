@@ -8,7 +8,7 @@ if /%MAYA_VER%/==// Set MAYA_VER=2017
 FOR /F "TOKENS=1,2,*" %%I IN ('REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Autodesk\Maya\%MAYA_VER%\Setup\InstallPath" /v "MAYA_INSTALL_LOCATION"') DO IF "%%I"=="MAYA_INSTALL_LOCATION" SET MAYA_APP_PATH=%%K
 
 REM バッチ処理スクリプトを実行
-%MAYA_APP_PATH%bin\mayapy %cd%\maya_scan_all.py
+"%MAYA_APP_PATH%bin\mayapy" %cd%\maya_scan_all.py
 
 REM 実行できなかった場合githubからダウンロードして実行
 if %errorlevel% neq 0 (
