@@ -12,3 +12,29 @@ windows7以前やwindows10の古いバージョンではcurlが入っていな�
 またダウンロードが必要なのでインターネットに接続されていない環境でも同様になります。  
   
 そういった場合にはmaya_scan_all.pyを実行バッチファイルと同ディレクトリに配置して実行するとそちらを使用するようになります。
+
+## ログファイルについて
+[セキュリティツール](https://knowledge.autodesk.com/ja/support/maya/troubleshooting/caas/sfdcarticles/sfdcarticles/JPN/How-to-diagnose-and-clean-Maya-ScriptExploit-issues.html)は
+```C:\Users\satoshi\AppData\Local\Temp```にログを出力します。  
+各シーンファイルごとにログを残しますが、以下のような結果になっていれば問題ないようです。  
+```
+checking issues in file: <scene_path1>
+scriptjob not found
+checking issues in file: <scene_path2>
+scriptjob not found
+checking issues in file: <scene_path3>
+scriptjob not found
+checking issues in file: <scene_path4>
+scriptjob not found
+...
+```
+
+以下のようにノードやscriptJobを削除したログが残っている場合などはシーンが感染していたということになります。  
+感染自体は[セキュリティツール](https://knowledge.autodesk.com/ja/support/maya/troubleshooting/caas/sfdcarticles/sfdcarticles/JPN/How-to-diagnose-and-clean-Maya-ScriptExploit-issues.html)によって駆除されています。
+```
+checking issues in file: <scene_path5>
+Malware : scriptJob present : 148
+Removed : scriptJob ID: 148
+scriptNode present : MayaMelUIConfigurationFile
+Removed : scriptNode: MayaMelUIConfigurationFile
+```
