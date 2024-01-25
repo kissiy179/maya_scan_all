@@ -32,7 +32,7 @@ def main(root_dir):
         reportIssue('', smode=1)
         cmds.file(new=True, force=True) 
         cmds.file(scn_file, open=True)
-        issuesFound, issuesFixed = clean_malware('current scene')
+        issuesFound, issuesFixed, mulType = clean_malware('current scene')
         
         if issuesFixed:
             cmds.file(save=True, force=True)
